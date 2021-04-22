@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using School_Spravki.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using School_Spravki.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace School_Spravki
 {
@@ -28,14 +30,20 @@ namespace School_Spravki
         {
             string connection = "Server=.\\SQLEXPRESS;Database=appspravkidb;Trusted_Connection=True;";
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+            services.AddHttpContextAccessor();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                });
             services.AddControllersWithViews();
+
+            services.AddScoped<AuthenticateService>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/Account/Login/");
+                    options.AccessDeniedPath = new PathString("/Account/Login/Forbidden/");
+
+                });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +64,7 @@ namespace School_Spravki
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

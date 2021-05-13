@@ -1,0 +1,132 @@
+﻿@model School_Spravki.Models.SpravkiViewModel
+
+@{
+    ViewData["Title"] = "Справка";
+}
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<head>
+    <style>
+        @@media print {
+            .noprint  { display: none; }
+        }
+    </style>
+</head>
+<BODY LANG="ru-RU" DIR="LTR">
+    <div class="noprint">
+        <a href="javascript:window.print()">Печать</a>
+    </div>
+
+
+    <P ALIGN=CENTER STYLE="margin-bottom: 0.11in">
+        <FONT COLOR="#000000">
+            <FONT SIZE=4>
+                <B>
+                    С
+                    П Р А В К А
+                </B>
+            </FONT>
+        </FONT>
+    </P>
+    <DIV ID="TextSection" DIR="LTR" GUTTER=28 STYLE="column-count: 2">
+        <P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 100%">
+            <FONT COLOR="#000000">
+                <FONT FACE="Times New Roman, serif">
+                    <FONT SIZE=2 STYLE="font-size: 9pt">
+                        Департамент
+                        образования
+                    </FONT>
+                </FONT>
+            </FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <FONT COLOR="#000000">
+                <FONT FACE="Times New Roman, serif">
+                    <FONT SIZE=2 STYLE="font-size: 9pt">
+                        Администрации
+                        Муниципальное автономное
+                    </FONT>
+                </FONT>
+            </FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 9pt">общеообразовательное</FONT></FONT></FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 9pt">учереждение</FONT></FONT></FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <FONT COLOR="#000000">
+                <FONT FACE="Times New Roman, serif">
+                    <FONT SIZE=2 STYLE="font-size: 9pt">
+                        средняя
+                        общеобразовательная
+                    </FONT>
+                </FONT>
+            </FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <FONT COLOR="#000000">
+                <FONT FACE="Times New Roman, serif">
+                    <FONT SIZE=2 STYLE="font-size: 9pt">
+                        школа
+                    </FONT>
+                </FONT>
+            </FONT>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            <BR><BR>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-top: 0.19in; margin-bottom: 0.19in; line-height: 100%">
+            № <FONT FACE="Times New Roman, serif">
+                  <FONT SIZE=2 STYLE="font-size: 9pt">
+                      @Html.DisplayFor(model => model.spravki.ID)
+                      @Model.spravki.Date_Created.ToShortDateString()
+                  </FONT>
+            </FONT>
+        </P>
+        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">
+            <BR><BR>
+        </P>
+        <P ALIGN=JUSTIFY STYLE="margin-right: 0.44in; margin-bottom: 0.11in">
+            Потверждает<SPAN LANG="en-US">, </SPAN>что<SPAN LANG="en-US">
+    @Html.DisplayFor(model => model.student.Name) @Html.DisplayFor(model => model.student.Patronymic) @Html.DisplayFor(model => model.student.Surname)
+</SPAN>
+        </P>
+        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">
+            обучается в
+            МАОУ СОШ  в  @Html.DisplayFor(model => model.student.StudyYear) @Html.DisplayFor(model => model.student.Litera) классе в 2021/2022 учебном
+            году.
+        </P>
+        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">
+            <BR><BR>
+        </P>
+        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.11in">
+            Справка дана
+            для предъявления по месту требования.
+        </P>
+        <P ALIGN=CENTER STYLE="margin-bottom: 0.11in">
+            <BR><BR>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-bottom: 0.11in">
+            <BR><BR>
+        </P>
+        <P ALIGN=CENTER STYLE="margin-bottom: 0.11in">
+            <FONT COLOR="#000000">
+                <FONT SIZE=4>
+                    Директор
+                    МАОУ СОШ
+                </FONT>
+            </FONT>
+        </P>
+    </DIV>
+</BODY>
+</HTML>
+
+@*<div>
+        <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

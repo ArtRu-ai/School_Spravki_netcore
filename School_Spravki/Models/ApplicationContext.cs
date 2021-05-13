@@ -6,10 +6,12 @@ namespace School_Spravki.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Spravki> Spravki { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
